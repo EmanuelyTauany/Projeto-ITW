@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const response = await fetch(API_Contas, {
            headers: {
-             "Authorization":"Bearer zebnbki1pcwy2jzwtrx23yrkdeftg09b5vsjfcbb"
+             "Authorization":"Bearer "
            }
         });
 
