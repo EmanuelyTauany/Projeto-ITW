@@ -4,7 +4,7 @@ async function cadastrarConta(usuario){
     try{
         const response = await fetch(`${API_Contas}/search?cpf=${usuario.cpf}`,
             {headers : {
-                Authorization: `Bearer `
+                Authorization: `Bearer zebnbki1pcwy2jzwtrx23yrkdeftg09b5vsjfcbb`
             }}
         );
         const verificacao = await response.json();
@@ -17,7 +17,7 @@ async function cadastrarConta(usuario){
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
-                'Authorization':`Bearer `
+                'Authorization':`Bearer zebnbki1pcwy2jzwtrx23yrkdeftg09b5vsjfcbb`
             },
             body: JSON.stringify({data: [{
                 ...usuario,

@@ -1,19 +1,71 @@
 const API_Contas = 'https://sheetdb.io/api/v1/omv7bzv17znba';
 
-async function ControlerLogin(email, senha){
-    try{
-        const response = await fetch(`${API_Contas}/search?email=${usuario.email},senha=${usuario.senha}`);
-        {headers : {
-            Authorization: `Bearer `
-        }}
+document.addEventListener("DOMContentLoaded", () => {
+    const btnLogin = document.getElementById("login-button");
 
-        const usuario = await response.json();
-
-        if(usuario.length === 0){
-         throw new Error("Usuário inexistente!");
+    btnLogin.addEventListener("click", async (e) =>{
+        e.preventDefault();
+        
+        const nome = document.getElementById("nome")?.value.trim();
+        const senha = document.getElementById("senha")?.value.trim();
+        
+        
+        
+        if(!nome || !senha){
+            alert("Preencha todos os campos!");
+            return;
         }
+
+
+    try{
+
+        btnLogin.disabled = true;
+        btnLogin.innerHTML = '<span class="spinner-border spinner-border-sm role="status" aria-hidden="true"></span> Verificando...';
+
+        const response = await fetch(API_Contas, {
+           headers: {
+             "Authorization":"Bearer zebnbki1pcwy2jzwtrx23yrkdeftg09b5vsjfcbb"
+           }
+        });
+
+        if(!response.ok){
+          throw new Error("Falha na conexão com o servidor!");
+        }
+         
+        const usuarios = await response.json();
+
+        const usuarioValido = usuarios.find(
+          (user) => user.nome?.toString().trim().toLowerCase() === nome.toLowerCase() && user.senha?.toString().trim() === senha
+        );
+        
+        if(!usuarioValido){
+         throw new Error("Usuário ou senha inválidos!");
+        
+        }
+
+        localStorage.setItem("usuarioLogado", JSON.stringify({
+          nome: usuarioValido.nome,
+          email: usuarioValido.email,
+          cpf: usuarioValido.cpf
+        }
+        ));
+      
+        alert("Login realizado com sucesso!");
+        window.location.href = "homepage.html";
+       
         
     }catch(error){
-    
+       alert("Erro ao tentar o login: " + error.message);
+       console.error(error);
+       
+    } finally {
+        btn = document.getElementById("login-button");
+        if(btn){
+          btnLogin.disabled = false;
+          btnLogin.textContext = "Acessar Sistema";
+        }
+        
     }
-}
+
+  });
+});

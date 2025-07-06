@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,20 +16,19 @@
     </nav>
 
     <div id="div-init">
-    <div id="login">
+    <div id="login-container">
          <h3>Nome</h3>
-        <input class="input-login" type=text name="name">
+        <input id="nome" class="input-login" type=text name="nome">
          <h3>Senha</h3>
-         <input class="input-login" type="password" name="password">
+         <input id="senha" class="input-login" type="password" name="senha">
          
-          <a href="homepage.html">
-         <button type="submmit">
+          
+         <button id="login-button" type="submit">
            
             Entrar
             
          </button>
 
-         </a>
 
           <a href="register.html">
          <button class="login-button" type="submit">
@@ -49,6 +48,28 @@
          </div>
 
     </div>
+    
+    <script src="logincontroler.js"></script>
+    
+    <footer>
+        <h3>
+            Pestalozzi Junqueiro 2025
+        </h3>
+
+        <h4>
+            Entre em contato:
+        </h4>
+
+        <a href="https://www.instagram.com/pestalozzijunqueiro/">
+            <img src="img/instagram-icon.png">
+            Instagram       
+        </a>
+
+        <a href="https://www.facebook.com/p/Associa%C3%A7%C3%A3o-Pestalozzi-de-Junqueiro-100067566822510/">
+            <img src="img/facebook-icon.png">
+            Facebook
+        </a>
+    </footer>
 
 </body>
 </html>
