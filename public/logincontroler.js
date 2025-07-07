@@ -1,4 +1,4 @@
-const API_Contas = 'https://projeto-itw.onrender.com/api/login';
+const API_Contas = 'https://projeto-itw.onrender.com/api';
 
 document.addEventListener("DOMContentLoaded", () => {
     const btnLogin = document.getElementById("login-button");
