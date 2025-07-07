@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
            },
 
-           body: JSON.stringfify({
+           body: JSON.stringify({
             nome : nome,
             senha : senha
            })
