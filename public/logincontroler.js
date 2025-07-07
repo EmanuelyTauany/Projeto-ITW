@@ -33,25 +33,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if(!response.ok){
-          throw new Error("Falha na conexão com o servidor!");
+          
+          const errorData = await response.json();
+          if(response.status === 401) {
+            throw new Error(errorData.error || "Usuário ou senha inválidos!");
+          } else {
+            throw new Error(errorData.error || "Falha na conexão com o servidor!")
+          }
         }
          
-        const usuarios = await response.json();
-
-        const usuarioValido = usuarios.find(
-          (user) => user.nome?.toString().trim().toLowerCase() === nome.toLowerCase() && user.senha?.toString().trim() === senha
-        );
+        const usuarioLogadoData = await response.json();
         
-        if(!usuarioValido){
-         throw new Error("Usuário ou senha inválidos!");
+        if(!usuarioLogadoData || usuarioLogadoData.length === 0 || !usuarioLogadoData[0].nome){
+         throw new Error("Erro ao receber os dados do usuário no servidor!");
         
         }
 
-        localStorage.setItem("usuarioLogado", JSON.stringify({
-          nome: usuarioValido.nome,
-          email: usuarioValido.email,
-          cpf: usuarioValido.cpf
-        }
+        localStorage.setItem("usuarioLogado", JSON.stringify(
+          usuarioLogadoData[0]
         ));
       
         alert("Login realizado com sucesso!");
