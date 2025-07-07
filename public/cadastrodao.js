@@ -1,10 +1,11 @@
-const API_Contas = 'https://sheetdb.io/api/v1/omv7bzv17znba';
+const API_Contas = 'https://projeto-itw.onrender.com/api';
 
 async function cadastrarConta(usuario){
     try{
         const response = await fetch(`${API_Contas}/search?cpf=${usuario.cpf}`,
             {headers : {
-                Authorization: `Bearer zebnbki1pcwy2jzwtrx23yrkdeftg09b5vsjfcbb`
+                 'Content-Type' : 'application/json'
+                //Authorization: `Bearer zebnbki1pcwy2jzwtrx23yrkdeftg09b5vsjfcbb`
             }}
         );
         const verificacao = await response.json();
@@ -17,7 +18,6 @@ async function cadastrarConta(usuario){
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
-                'Authorization':`Bearer ${process.env.API_KEY}`
             },
             body: JSON.stringify({data: [{
                 ...usuario,
@@ -79,8 +79,6 @@ async function cadastrarConta(usuario){
 
     }catch(erro){
         alert('Erro: '+erro.message);
-
-
         console.error({erro: erro, stack:erro.stack});
     }finally{
       const button_context = e.target;
