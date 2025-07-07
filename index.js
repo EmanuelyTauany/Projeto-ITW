@@ -1,5 +1,4 @@
 const path = require('path');
-const fetch = require('node-fetch');
 const cors = require('cors');
 const express = require('express');
 const { createCipheriv } = require('crypto');
