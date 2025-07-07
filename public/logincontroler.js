@@ -1,4 +1,4 @@
-const API_Contas = 'https://sheetdb.io/api/v1/omv7bzv17znba';
+const API_Contas = 'https://projeto-itw.onrender.com/api';
 
 document.addEventListener("DOMContentLoaded", () => {
     const btnLogin = document.getElementById("login-button");
@@ -9,23 +9,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const nome = document.getElementById("nome")?.value.trim();
         const senha = document.getElementById("senha")?.value.trim();
         
-        
-        
         if(!nome || !senha){
             alert("Preencha todos os campos!");
             return;
         }
-
 
     try{
 
         btnLogin.disabled = true;
         btnLogin.innerHTML = '<span class="spinner-border spinner-border-sm role="status" aria-hidden="true"></span> Verificando...';
 
-        const response = await fetch(API_Contas, {
+        const response = await fetch(`${API_Contas}/login`, {
+           method: 'POST',
            headers: {
-             "Authorization":"Bearer "
-           }
+            'Content-Type':'application/json'
+            
+           },
+
+           body: JSON.stringfify({
+            nome : nome,
+            senha : senha
+           })
         });
 
         if(!response.ok){
@@ -62,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn = document.getElementById("login-button");
         if(btn){
           btnLogin.disabled = false;
-          btnLogin.textContext = "Acessar Sistema";
+          btnLogin.textContent = "Acessar Sistema";
         }
         
     }

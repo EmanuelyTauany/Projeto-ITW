@@ -1,10 +1,10 @@
-const API_Contas = 'https://sheetdb.io/api/v1/omv7bzv17znba';
+const API_Contas = 'https://projeto-itw.onrender.com/api';
 
 async function cadastrarConta(usuario){
     try{
         const response = await fetch(`${API_Contas}/search?cpf=${usuario.cpf}`,
             {headers : {
-                Authorization: `Bearer zebnbki1pcwy2jzwtrx23yrkdeftg09b5vsjfcbb`
+                 'Content-Type' : 'application/json'
             }}
         );
         const verificacao = await response.json();
@@ -17,7 +17,6 @@ async function cadastrarConta(usuario){
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
-                'Authorization':`Bearer `
             },
             body: JSON.stringify({data: [{
                 ...usuario,
@@ -46,7 +45,6 @@ async function cadastrarConta(usuario){
         senha: document.getElementById('senha').value
     
     }    
-    
     
       if(!inputs.nome || !inputs.email || !inputs.cpf || !inputs.senha){
         alert("Preencha todos os campus de cadastro!");
@@ -79,8 +77,6 @@ async function cadastrarConta(usuario){
 
     }catch(erro){
         alert('Erro: '+erro.message);
-
-
         console.error({erro: erro, stack:erro.stack});
     }finally{
       const button_context = e.target;
@@ -91,16 +87,3 @@ async function cadastrarConta(usuario){
 });
 
 
-
-
-
-
-
-
-
-//const SheetDB = window.sheetdb;
-
-//SheetDB.read('https://sheetdb.io/api/v1/jd82yvgnpnv6v', {}).then(function(result){
-   //console.log(result);
-//}, function(error){
-   // console.log(error);//});
