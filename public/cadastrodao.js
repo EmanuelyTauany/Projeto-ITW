@@ -17,7 +17,7 @@ async function cadastrarConta(usuario){
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
-                'Authorization':`Bearer `
+                'Authorization':`Bearer ${process.env.API_KEY}`
             },
             body: JSON.stringify({data: [{
                 ...usuario,

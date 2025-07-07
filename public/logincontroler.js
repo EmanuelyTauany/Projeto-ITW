@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const response = await fetch(API_Contas, {
            headers: {
-             "Authorization":"Bearer ${API_KEY}"
+             "Authorization":"Bearer ${process.env.API_KEY}"
            }
         });
 
