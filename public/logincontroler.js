@@ -9,13 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const nome = document.getElementById("nome")?.value.trim();
         const senha = document.getElementById("senha")?.value.trim();
         
-        
-        
         if(!nome || !senha){
             alert("Preencha todos os campos!");
             return;
         }
-
 
     try{
 

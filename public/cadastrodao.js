@@ -46,7 +46,6 @@ async function cadastrarConta(usuario){
     
     }    
     
-    
       if(!inputs.nome || !inputs.email || !inputs.cpf || !inputs.senha){
         alert("Preencha todos os campus de cadastro!");
         return;
@@ -88,16 +87,3 @@ async function cadastrarConta(usuario){
 });
 
 
-
-
-
-
-
-
-
-//const SheetDB = window.sheetdb;
-
-//SheetDB.read('https://sheetdb.io/api/v1/jd82yvgnpnv6v', {}).then(function(result){
-   //console.log(result);
-//}, function(error){
-   // console.log(error);//});

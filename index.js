@@ -131,7 +131,6 @@ app.post('/api/login', async (req, res) =>{
     res.status(500).json({erro:"Erro ao tentar o login no servidor!"})
   }
 }
-
 );
 
  
