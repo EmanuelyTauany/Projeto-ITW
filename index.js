@@ -10,7 +10,7 @@ app.use(express.json());
 
  app.post('/api', async (req, res) => {
    try{
-     const response = await fetch('https://projeto-itw.onrender.com', {
+     const response = await fetch('https://sheetdb.io/api/v1/omv7bzv17znba', {
         method: 'POST',
         headers: {
           'Authorization' : `Bearer ${process.env.API_KEY}`,
