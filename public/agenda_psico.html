@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento Atendimento Psicológico</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js"></script>
+    <script src="agenda.js"></script>
+</head>
+<body class="body2">
+    <nav id="nav-login">
+      <img src="img/logo-pjunqueiro.png">
+    </nav>
+     
+    
+
+    <div class="main-page">
+      <div id="calendar"></div>
+    </div>
+
+
+    <div id="modal-agendamento">
+      <div class="modal-content">
+        <h2>Confirmar agendamento</h2>
+        <p id="horario selecionado"></p>
+        <form id="form-agendamento"> 
+         <div>
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" required>
+
+         </div>
+
+         <div>
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" required>
+         </div>
+
+         
+        </form>
+      </div>
+    </div>
+
+    
+</body>
+</html>
