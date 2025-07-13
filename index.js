@@ -1,7 +1,6 @@
 const path = require('path');
 const cors = require('cors');
 const express = require('express');
-const { createCipheriv } = require('crypto');
 const app = express();
 const port = process.env.PORT || 8080;
 require('dotenv').config({path: '/etc/secrets/.env'});
@@ -66,7 +65,7 @@ app.use(express.json());
         method:'GET',
         headers: {
           'Authorization' : `Bearer ${process.env.API_KEY}`,
-          'Content-text' : 'application/json'
+          'Content-Type' : 'application/json'
         }
       });
 
