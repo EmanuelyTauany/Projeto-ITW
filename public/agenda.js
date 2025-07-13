@@ -36,11 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contentHeight: 'auto',
         expandRows: false,
         locale:'pt-br',
-        headerToolBar : {
-          left:'prev, next today',
-          center:'title',
-          right:'dayGridMonth, timeGridWeek, timeGridDay'
-        },
+        
         slotMinTime: '08:00:00',
         slotMaxTime: '16:00:00',
         slotDuration: '01:00:00',
@@ -78,22 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
           return diasPermitidos.includes(diaDaSemana);
         },
 
-        eventClick: function(info){
-          const tipo = info.event.extendedProps?.tipo;
-
-          const confirmar =  confirm(
-            `Deseja desmarcar o agendamento?\n\n` +
-            `Evento: ${info.event.title}` + `${tipo}\n` +
-            `Início: ${info.event.start.toLocaleString('pt-BR')}`
-          
-          );
-
-          if(confirmar) {
-            info.event.remove();
-            alert('Evento desmarcado com sucesso!')
-          }
-          
-        },
 
         buttonText: {
               today:'Hoje',
@@ -113,8 +93,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       const eventos = await response.json();
+      console.log(eventos);
       
       eventos.forEach(evento => {
+        const inicio = new Date(evento.inicio);
+        const fim = new Date(evento.fim);
+
+        if(isNaN(inicio) || isNaN(fim)){
+          console.warn("Evento ignorado por data inválida: ", evento)
+        
+          return;
+        }
+
         calendar.addEvent({
           title: `Atendimento ${evento.tipo} - ${evento.nome}`,
           start: new Date (evento.inicio).toISOString(),
@@ -153,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const nome = document.getElementById('nome').value;
       const email = document.getElementById('email').value;
+      const telefone = document.getElementById('telefone').value;
 
       
       
@@ -162,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nome,
             email,
             tipo,
+            telefone,
             inicio: selecaoAtual.start.toISOString(),
             fim: selecaoAtual.end.toISOString()
           };

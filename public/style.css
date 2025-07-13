@@ -8,20 +8,10 @@ html{
     background:rgb(243, 236, 139);
 }
 
-a{ 
+.container a{ 
   text-decoration:none;    
 }
 
-a button{
-    font-family:"Lexend Giga", sans-serif;
-    /*left:0;
-    right:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin: 0 auto;
-    margin-top:2vh;*/
-}
 
 footer{
     display:block;
@@ -105,7 +95,7 @@ button{
    padding:1.5rem;
    justify-content:center;
    align-items:center;
-   margin-top:5%;
+   margin-top:10%;
    width:25vw;
    height:6vh;
    border-radius:10vh;
@@ -113,6 +103,7 @@ button{
    margin: 2% auto 0 auto;
    text-align:center;
    font-size:medium;
+   font-family:"Lexend Giga", sans-serif;
 }
 
 .input-login{
@@ -121,7 +112,7 @@ button{
     border:none;
 }
 
-.input-register{
+.phone-mask, .cpf-mask, .input-register{
     padding:2vh;
     border-radius:2vh;
     border:none;
@@ -364,7 +355,7 @@ main{
  color:white;
  right:auto;
  left:auto;
- height:100vh;
+ height:90vh;
 }
 
 @media (max-width:992px){
@@ -374,7 +365,7 @@ main{
     padding:7%;
     height:80%;
  }
- .input-register{
+ .cpf-mask, .phone-mask,.input-register{
     width:100%;
  }
 

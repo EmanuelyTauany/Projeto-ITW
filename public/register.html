@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap" rel="stylesheet">
+    <script src="mascara.js"></script>
 </head>
 <body class="body1">
     <nav id="nav-login">
@@ -17,21 +18,21 @@
     <div id="div-register">
         <h1>Cadastro</h1>
      <h3>Nome</h3>
-     <input class="input-register" id="nome" type="text" name="name">
+     <input class="input-register" id="nome" type="text" name="name" required>
      <h3>E-mail</h3>
-     <input class="input-register" id="email" type="email" name="email">
+     <input class="input-register" id="email" type="email" name="email" requred>
      <h3>CPF</h3>
-     <input class="input-register" id="cpf" type="number" name="cpf">
+     <input class="cpf-mask" id="cpf" name="cpf" required>
      <h3>Telefone</h3>
-     <input class="input-register" id="telefone" type="tel" name="telefone">
+     <input class="phone-mask" id="telefone" name="telefone" required>
      <h3>Senha</h3>
-     <input class="input-register" id="senha" type="password" name="password">
+     <input class="input-register" id="senha" type="password" name="password" required>
      <h3>Confirmar senha</h3>
-     <input class="input-register" id="c_senha" type="password" name="c_password">
+     <input class="input-register" id="c_senha" type="password" name="c_password" required>
      
-    <!--<a href="index.html">-->
+    
         <button id="register-button">Registrar</button>
-    <!-- </a> -->
+
     </div>
      
     <footer>
@@ -56,5 +57,6 @@
 
 
     <script src="cadastrodao.js"></script>
+    
 </body>
 </html>

@@ -134,7 +134,7 @@ app.post('/api/login', async (req, res) =>{
 
 app.post('/api/evento', async (req, res) => {
   try{
-    const evento = req.body;
+    const { nome, email, tipo, telefone, inicio, fim} = req.body;
     const resposta = await fetch(process.env.API_URL_KEY2, {
       method: 'POST',
       headers:{
@@ -142,7 +142,7 @@ app.post('/api/evento', async (req, res) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        data: [{...evento, data_criacao: new Date().toISOString()}]
+        data: [{...req.body, data_criacao: new Date().toISOString()}]
       })
     });
 
