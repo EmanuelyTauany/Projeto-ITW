@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento Atendimento Psicológico</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_agendamento.css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js"></script>
     <script src="agenda.js"></script>
 </head>
@@ -23,7 +24,8 @@
     <div id="modal-agendamento">
       <div class="modal-content">
         <h2>Confirmar agendamento</h2>
-        <p id="horario selecionado"></p>
+        <p id="horarioSelecionado"></p>
+
         <form id="form-agendamento"> 
          <div>
           <label for="nome">Nome:</label>
@@ -33,11 +35,19 @@
 
          <div>
           <label for="email">E-mail:</label>
-          <input type="email" id="email" required>
+          <input type="email" id="email" required>   
          </div>
 
+         <div>
+          <label for="tel">Telefone:</label>
+          <input type="tel" id="telefone" required>
+         </div>
+         
+         <button type="submit">Agendar</button>
          
         </form>
+       
+        <button id="cancelar-btn">Cancelar</button>
       </div>
     </div>
 

@@ -132,5 +132,48 @@ app.post('/api/login', async (req, res) =>{
 }
 );
 
- 
+app.post('/api/evento', async (req, res) => {
+  try{
+    const evento = req.body;
+    const resposta = await fetch(process.env.API_URL_KEY2, {
+      method: 'POST',
+      headers:{
+        'Authorization': `Bearer ${process.env.API_KEY2}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        data: [{...evento, data_criacao: new Date().toISOString()}]
+      })
+    });
 
+    const json = await resposta.json();
+    res.json(json);
+
+  
+  }catch (err){
+    console.error(err);
+    res.status(500).json({erro:'Erro ao registrar evento'});
+  }
+}) 
+
+app.get('/api/evento', async (req, res) =>{
+  try{
+    const resposta = await fetch(process.env.API_URL_KEY2, {
+      headers:{
+        'Authorization': `Bearer ${process.env.API_KEY2}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+  if(!resposta.ok){
+   const error = await resposta.text();
+   throw new Error(`Erro na API do SheetDB: ${error}`);
+  }
+
+  const dados = await resposta.json();
+  res.json(dados);
+  } catch(err){
+    console.error(err);
+    res.status(500).json({erro:'Erro ao buscar eventos'});
+  }
+});

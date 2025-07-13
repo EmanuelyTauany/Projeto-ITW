@@ -1,0 +1,90 @@
+.fc-timegrid-slot,
+.fc-timegrid-col,
+.fc-timegrid-axis,
+.fc-scrollgrid-sync-inner,
+.fc-col-header-cell{
+    
+}
+
+#modal-agendamento{
+ background-color:rgb(44, 37, 37);
+ color:rgb(255, 255, 255);
+ top: 0; left:0; right:0; bottom:0;
+ justify-content:center;
+ justify-items:center;
+ margin: 2% auto 5% auto;
+ width:100vh;
+ height:80vh;
+ padding:2%;
+ border-radius:5%;
+ display:none;
+ position:fixed;
+ z-index: 1000;
+
+}
+
+.modal-content {
+    
+    border-radius:1rem;
+    padding:2rem;
+    max-width: 400px;
+    width:90%;
+    height:400px;
+    text-align: center;
+    color:rgb(255, 255, 255);
+}
+
+.modal-content label{
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+.modal-content input{
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+
+#modal-agendamento.active {
+    display: flex;
+}
+
+.fc-timegrid-slot-label {
+    background-color:#f7f7f7;
+    font-weight: 500;
+    color: #9fe9ff;
+}
+
+.fc-timegrid-slot{
+    color:black;
+    background-color: hsl(168, 100%, 95%);
+    border: 1px solid #eee;
+    height: 4rem !important;
+    
+    max-height: 3rem !important;
+    overflow: hidden;
+}
+
+.fc-botton{
+ background-color:#4CAF50;
+ border: none;
+ color: white;
+ padding: 0.4rem 0.8rem;
+ border-radius: 5px;
+ font-weight: bold;
+}
+
+.fc-botton:hover {
+   background-color: #43a047
+}
+
+.fc-col-header-cell-cushion {
+    color: black !important;
+    font-size: 1.5rem;
+    height:50px;
+}
